@@ -1,22 +1,28 @@
 ### Tempatrature stats
-This is a test project
+**This is a test project**
+Display temperature stats for fridges
+
+
+#### Tested On
+- Golang version: go1.10 darwin/amd64
+
 
 #### Run with docker
 
-    docker build -t hello-world .
-    docker run --rm --name hello-world -d -p 3000:3333 hello-world
+    docker build -t "safcul-temp-stats:dev" .
+    docker run --rm --name safcul-temp-stats -it safcul-temp-stats:dev
 
-    # Check logs
-    docker logs -f hello-world
+    # with file flag
+    docker run --rm --name safcul-temp-stats -it safcul-temp-stats:dev --file data/fridge_temperature.json
 
 
 #### Run manually
 
+    cd safcul-temp-stats
+
     go test
-    go build
-    ./tel-hello-world
+    go build -o stats *.go
+    ./stats
 
-
-#### Usage
-
-    curl http://localhost:3000
+    # with file flag
+    ./stats --file data/fridge_temperature.json
